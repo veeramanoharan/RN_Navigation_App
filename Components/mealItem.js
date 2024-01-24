@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
         fontSize: 17,
         margin: 8,
-
     },
     outerContainer:{
         margin:16,
