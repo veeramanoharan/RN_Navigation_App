@@ -4,8 +4,6 @@ import { useNavigation } from "@react-navigation/native";
 
 function GridTileComponent({title,color,buttonPress}){
 
-    const navigate = useNavigation();
-
     return (
         <View style={styles.gridItems}>
             <Pressable android_ripple={{color:'#ccc'}} 
