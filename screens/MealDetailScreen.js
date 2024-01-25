@@ -17,7 +17,7 @@ function MealDetailScreen({route,navigation}){
         navigation.setOptions({
             headerRight: () => {
                 return (
-                    <IconButton icon='heart' color='red' buttonPress={ButtonHandler}/>
+                    <IconButton icon='favorite' color='white' buttonPress={ButtonHandler}/>
                 );
             }
         })
