@@ -1,11 +1,11 @@
 import { View,Text,StyleSheet } from "react-native";
 
-function MealDetails({duration,complexity,affordability,textStyles}){
+function MealDetails({duration,complexity,affordability,text_styles}){
     return(
         <View style = {styles.details}>
-        <Text style={[styles.detail_items,textStyles]}>Duration - {duration}m</Text>
-        <Text style={[styles.detail_items,textStyles]}>Complexity - {complexity.toUpperCase()}</Text>
-        <Text style={[styles.detail_items,textStyles]}>Affordability - {affordability.toUpperCase()}</Text>
+        <Text style={[styles.detail_items,text_styles]}>Duration - {duration}m</Text>
+        <Text style={[styles.detail_items,text_styles]}>Complexity - {complexity.toUpperCase()}</Text>
+        <Text style={[styles.detail_items,text_styles]}>Affordability - {affordability.toUpperCase()}</Text>
     </View>
     );
 }
