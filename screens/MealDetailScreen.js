@@ -1,11 +1,11 @@
 import { View,Text,Image,StyleSheet,ScrollView } from "react-native";
-import List from "../Components/mDetails/list";
-import Subtitles from "../Components/mDetails/subtitles";
-import MealDetails from "../Components/mealDetails";
-import { MEALS } from "../data/dummy_data";
+import List from "../components/MealsDetails/List";
+import Subtitles from "../components/MealsDetails/Subtitles";
+import MealDetails from "../components/MealDetails";
+import { MEALS } from "../data/ConstantData";
 import { useContext, useLayoutEffect } from "react";
-import IconButton from "../Components/IconButton";
-import { Favourites_Context } from "../store/context/fav_context";
+import IconButton from "../components/IconButton";
+import { Favourites_Context } from "../store/context/Favourites_Context";
 
 function MealDetailScreen({route,navigation}){
    const MealId = route.params.mealId
@@ -31,14 +31,14 @@ function MealDetailScreen({route,navigation}){
         navigation.setOptions({
             headerRight: () => {
                 return (
-                    <IconButton icon={IsMealFavourite ? 'star' : 'star-o'} color='white' buttonPress={FavButtonHandler}/>
+                    <IconButton icon={IsMealFavourite ? 'star' : 'star-o'} color='white' button_press={FavButtonHandler}/>
                 );
             }
         })
     },[navigation,FavButtonHandler]);
 
     return(
-        <ScrollView style={styles.scrollContainer}>
+        <ScrollView style={styles.scroll_container}>
             <Image source={{uri:SelectedMeal.imageUrl}} style={styles.image}/>
             
             <Text style={styles.title}>{SelectedMeal.title}</Text>
@@ -46,9 +46,9 @@ function MealDetailScreen({route,navigation}){
             <MealDetails duration={SelectedMeal.duration} 
                 complexity={SelectedMeal.complexity} 
                 affordability={SelectedMeal.affordability}
-                textStyles={styles.detailText}/>
-            <View style={styles.listOuterContainer}>
-                <View style={styles.listContainer}>
+                textStyles={styles.detail_text}/>
+            <View style={styles.list_outer_container}>
+                <View style={styles.list_container}>
                     <Subtitles>Ingridients</Subtitles>
                     <List data={SelectedMeal.ingredients} />
                     <Subtitles>Steps</Subtitles>
@@ -73,18 +73,18 @@ const styles = StyleSheet.create({
         margin: 8,
         color:'white'
     },
-    detailText:{
+    detail_text:{
         color:'white',
         fontSize:13
     },
-    listContainer: {
+    list_container: {
         maxWidth:'80%',
 
     },
-    listOuterContainer:{
+    list_outer_container:{
         alignItems:'center'
     },
-    scrollContainer:{
+    scroll_container:{
         marginBottom: 30
     }
    

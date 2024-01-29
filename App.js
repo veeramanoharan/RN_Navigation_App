@@ -1,5 +1,4 @@
 import { StatusBar } from 'expo-status-bar';
-import {Button} from 'react-native'
 import CategoriesList from './screens/CategoriesList';
 import { NavigationContainer } from '@react-navigation/native'
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -8,8 +7,8 @@ import MealDetailScreen from './screens/MealDetailScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {Ionicons,Fontisto} from '@expo/vector-icons';
-import FavouriteScreen from './screens/FavScreen';
-import Fav_contextProvider from './store/context/fav_context';
+import FavouriteScreen from './screens/FavouriteScreen';
+import Fav_contextProvider from './store/context/Favourites_Context';
 
 const BottomTab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();

@@ -1,6 +1,6 @@
 import { View,Text,Pressable,Image,StyleSheet,Platform } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import MealDetails from "../mealDetails";
+import MealDetails from "../MealDetails";
 
 function MealItem({id,title,imageUrl,duration,complexity,affordability}){
 
@@ -13,11 +13,11 @@ function MealItem({id,title,imageUrl,duration,complexity,affordability}){
    }
 
     return(
-        <View style={styles.outerContainer}>
-            <Pressable android_ripple={{color:'#ccc'}} style={({pressed}) => (pressed ? styles.buttonPressed : null)}
+        <View style={styles.outer_container}>
+            <Pressable android_ripple={{color:'#ccc'}} style={({pressed}) => (pressed ? styles.button_pressed : null)}
               onPress={itemPressed}>
 
-               <View style={styles.innerContainer}> 
+               <View style={styles.inner_container}> 
                     <View>
                         <Image source={{uri: imageUrl}} style={styles.image}/>
                         <Text style = {styles.title}>{title}</Text>
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         fontSize: 17,
         margin: 8,
     },
-    outerContainer:{
+    outer_container:{
         margin:16,
         borderRadius:8,
         overflow: Platform.OS == 'android' ? 'hidden' : 'visible',
@@ -52,12 +52,12 @@ const styles = StyleSheet.create({
         shadowOffset:{ width:0, height:2},
         shadowRadius: 8,
     },
-    innerContainer:{
+    inner_container:{
         borderRadius: 8,
         overflow:'hidden'
     },
     
-    buttonPressed: {
+    button_pressed: {
         opacity:0.7
     },
 });

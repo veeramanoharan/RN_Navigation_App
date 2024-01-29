@@ -4,8 +4,8 @@ import { Text,View,StyleSheet } from "react-native";
 function List({data}){
     return(
         data.map((points) => (
-            <View key={points} style={styles.listItem}>
-                <Text style = {styles.itemText}> {points} </Text>
+            <View key={points} style={styles.list_item}>
+                <Text style = {styles.item_text}> {points} </Text>
             </View>
             ))
     );
@@ -14,7 +14,7 @@ function List({data}){
 export default List;
 
 const styles = StyleSheet.create({
-    listItem:{
+    list_item:{
         borderRadius: 4,
         paddingHorizontal: 6,
         paddingVertical: 3,
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         marginVertical: 5,
         backgroundColor: '#e3b487'
     }, 
-    itemText: {
+    item_text: {
         color: '#3f2f25',
         textAlign: 'center',
         fontSize:15,

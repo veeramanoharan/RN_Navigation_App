@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { View,Text,StyleSheet } from "react-native";
-import MealsList from "../Components/mList/MealsList";
-import { MEALS } from "../data/dummy_data";
-import { Favourites_Context } from "../store/context/fav_context";
+import MealsList from "../components/MealsList/MealsList";
+import { MEALS } from "../data/ConstantData";
+import { Favourites_Context } from "../store/context/Favourites_Context";
 
 function FavouriteScreen(){
     const FavMealsCntxt = useContext(Favourites_Context);
@@ -10,7 +10,7 @@ function FavouriteScreen(){
 
     if(FavMeals.length === 0){
         return(
-            <View style={styles.rootContainer}>
+            <View style={styles.root_container}>
                 <Text style={styles.text}>
                     Start Adding Favorites...!
                 </Text>
@@ -18,14 +18,14 @@ function FavouriteScreen(){
         );
     }
     return(
-        <MealsList mItems={FavMeals}/>
+        <MealsList meal_items={FavMeals}/>
     );
 }
 
 export default FavouriteScreen;
 
 const styles = StyleSheet.create({
-    rootContainer:{
+    root_container:{
         flex: 1,
         justifyContent: 'center',
         alignItems:'center'

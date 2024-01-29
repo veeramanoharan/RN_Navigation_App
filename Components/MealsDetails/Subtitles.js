@@ -2,8 +2,8 @@ import { View,Text,StyleSheet } from "react-native";
 
 function Subtitles({children}){
     return(
-        <View style={styles.subtitleContainer}>        
-        <Text style={styles.subTitles}>{children}</Text>
+        <View style={styles.subtitle_container}>        
+        <Text style={styles.subtitles}>{children}</Text>
           </View>
     );
 }
@@ -11,14 +11,14 @@ function Subtitles({children}){
 export default Subtitles;
 
 const styles = StyleSheet.create({
-    subTitles:{
+    subtitles:{
         color:'#e3b487',
         fontSize:16,
         fontWeight:'bold',
         textAlign:'center',
        
     },
-    subtitleContainer: {
+    subtitle_container: {
         marginVertical: 4,
         marginHorizontal:15,
         padding:6,

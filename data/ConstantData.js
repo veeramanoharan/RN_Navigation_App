@@ -1,5 +1,5 @@
-import Category from '../models/category';
-import Meal from '../models/meal';
+import Category from '../models/Category';
+import Meal from '../models/Meal';
 
 export const CATEGORIES = [
   new Category('c1', 'Italian', '#f5428d'),

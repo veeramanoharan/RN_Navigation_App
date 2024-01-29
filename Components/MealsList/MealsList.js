@@ -1,7 +1,7 @@
 import { View,FlatList,StyleSheet } from "react-native";
-import MealItem from './mealItem';
+import MealItem from './MealItem';
 
-function MealsList({mItems}){
+function MealsList({meal_items}){
     
     function renderMealItem(itemData){
         const item = itemData.item;
@@ -18,7 +18,7 @@ function MealsList({mItems}){
 
     return(
         <View style={styles.container}>
-            <FlatList data={mItems} keyExtractor={(item) => item.id} renderItem={renderMealItem}/>
+            <FlatList data={meal_items} keyExtractor={(item) => item.id} renderItem={renderMealItem}/>
         </View>
     );
 };

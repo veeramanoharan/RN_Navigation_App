@@ -2,14 +2,14 @@ import { View,Pressable,Text,Platform } from "react-native";
 import { StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-function GridTileComponent({title,color,buttonPress}){
+function GridTileComponent({title,color,button_press}){
 
     return (
-        <View style={styles.gridItems}>
+        <View style={styles.grid_items}>
             <Pressable android_ripple={{color:'#ccc'}} 
-                style={({pressed}) => [styles.buttons , pressed ? styles.buttonPressed : null]}
-                onPress={buttonPress}>
-                <View style={[styles.innerContainer , {backgroundColor:color}]}>
+                style={({pressed}) => [styles.buttons , pressed ? styles.button_pressed : null]}
+                onPress={button_press}>
+                <View style={[styles.inner_container , {backgroundColor:color}]}>
                     <Text style={styles.title}> {title} </Text>
                 </View>
             </Pressable>
@@ -21,7 +21,7 @@ function GridTileComponent({title,color,buttonPress}){
 export default GridTileComponent;
 
 const styles = StyleSheet.create({
-    gridItems:{
+    grid_items:{
         flex:1,
         margin:15,
         height:160,
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         backgroundColor:'white',
         overflow: Platform.OS == 'android'?'hidden' : 'visible'
     },
-    innerContainer:{
+    inner_container:{
         flex:1,
         padding: 15,
         justifyContent:'center',
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     buttons:{
         flex:1,
     },
-    buttonPressed: {
+    button_pressed: {
         opacity:0.2
     },
     title:{

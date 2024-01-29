@@ -1,6 +1,6 @@
-import { CATEGORIES, MEALS } from '../data/dummy_data';
+import { CATEGORIES, MEALS } from '../data/ConstantData';
 import { useLayoutEffect } from 'react';
-import MealsList from '../Components/mList/MealsList';
+import MealsList from '../components/MealsList/MealsList';
 
 
 function DetailedViewScreen({route,navigation}){
@@ -17,7 +17,7 @@ function DetailedViewScreen({route,navigation}){
     });
    },[catId,navigation])
     
-   return <MealsList mItems={displayedMeal}/>
+   return <MealsList meal_items={displayedMeal}/>
 
    
 }
