@@ -3,25 +3,39 @@ import List from "../Components/mDetails/list";
 import Subtitles from "../Components/mDetails/subtitles";
 import MealDetails from "../Components/mealDetails";
 import { MEALS } from "../data/dummy_data";
-import { useLayoutEffect } from "react";
+import { useContext, useLayoutEffect } from "react";
 import IconButton from "../Components/IconButton";
+import { Favourites_Context } from "../store/context/fav_context";
 
 function MealDetailScreen({route,navigation}){
-    const MealId = route.params.mealId
+   const MealId = route.params.mealId
+   const FavMealsContext = useContext(Favourites_Context);
+   
+   const IsMealFavourite = FavMealsContext.ids.includes(MealId);
+
+    
     const SelectedMeal = MEALS.find((meal) => meal.id === MealId)
-    function ButtonHandler(){
-        console.log('Added to WhishList');
+    
+    function FavButtonHandler(){
+        if(IsMealFavourite){
+            FavMealsContext.removeFavourite(MealId);
+            console.log('Removed from Favourite');
+        }
+        else{
+            FavMealsContext.addFavourite(MealId);
+            console.log('Added to Favourite');
+        }
     }
 
     useLayoutEffect(() => {
         navigation.setOptions({
             headerRight: () => {
                 return (
-                    <IconButton icon='favorite' color='white' buttonPress={ButtonHandler}/>
+                    <IconButton icon={IsMealFavourite ? 'star' : 'star-o'} color='white' buttonPress={FavButtonHandler}/>
                 );
             }
         })
-    },[navigation,ButtonHandler]);
+    },[navigation,FavButtonHandler]);
 
     return(
         <ScrollView style={styles.scrollContainer}>

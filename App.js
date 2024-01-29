@@ -9,6 +9,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {Ionicons,Fontisto} from '@expo/vector-icons';
 import FavouriteScreen from './screens/FavScreen';
+import Fav_contextProvider from './store/context/fav_context';
 
 const BottomTab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -44,24 +45,26 @@ export default function App() {
   return (
     <>
       <StatusBar style="light" />
-      <NavigationContainer>
-        <Stack.Navigator screenOptions={{
-              headerStyle:{backgroundColor: '#351401'},
-              headerTintColor:'white',
-              contentStyle:{backgroundColor:'#3f2f25'}
-        }}>
-     
-          <Stack.Screen 
-            name="Meals Categories Screen" 
-            component={DrawerNavigation}
-            options={{
-              headerShown: false,
-            }}
-            />
-          <Stack.Screen  name="Meals Detailed View" component={DetailedViewScreen}/>
-          <Stack.Screen name='Meal Details Page' component={MealDetailScreen}/>
-        </Stack.Navigator>
-      </NavigationContainer>
+      <Fav_contextProvider>
+        <NavigationContainer>
+          <Stack.Navigator screenOptions={{
+                headerStyle:{backgroundColor: '#351401'},
+                headerTintColor:'white',
+                contentStyle:{backgroundColor:'#3f2f25'}
+          }}>
+      
+            <Stack.Screen 
+              name="Meals Categories Screen" 
+              component={DrawerNavigation}
+              options={{
+                headerShown: false,
+              }}
+              />
+            <Stack.Screen  name="Meals Detailed View" component={DetailedViewScreen}/>
+            <Stack.Screen name='Meal Details Page' component={MealDetailScreen}/>
+          </Stack.Navigator>
+        </NavigationContainer>
+      </Fav_contextProvider>   
     </>
   );
 }

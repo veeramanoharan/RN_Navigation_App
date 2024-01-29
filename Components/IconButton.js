@@ -1,10 +1,10 @@
 import { Pressable,StyleSheet } from "react-native";
-import {Fontisto} from '@expo/vector-icons';
+import {FontAwesome} from '@expo/vector-icons';
 
 function IconButton({icon,color,buttonPress}){
     return(
         <Pressable onPress={buttonPress} style={({pressed}) => pressed && styles.pressed}>
-            <Fontisto name={icon} size={28} color={color}/>
+            <FontAwesome name={icon} size={28} color={color}/>
         </Pressable>
     );
 }
